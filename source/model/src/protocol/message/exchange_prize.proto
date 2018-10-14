@@ -1,0 +1,32 @@
+option java_package = "com.gamegou.soccermanager.pb.message";
+option java_outer_classname = "ExchangePrize";
+
+message GetExchangePrize
+{
+	required uint32 opticode = 1;
+	required string exchangeid = 2;
+	required uint32 account = 3;
+	required uint32 time = 4;
+	required string version = 5;
+}
+
+message RepExchangePrize
+{
+	enum RESPOSE_TYPE
+	{
+	SUCCESS = 0;
+	ERROR_DISCONNECT = 1;
+	ERROR_NOT_EXIST = 2;
+	ERROR_EXPIRED = 3;
+	ERROR_USED = 4;
+	ERROR_SAME = 5;
+	ERROR_NCHANNEL = 6;//channel discorrect
+	ERROR_NVERSION = 7;
+	};
+
+	required uint32 opticode = 1;
+	required uint32 responsetype = 2;
+	required uint32 account = 3;
+	optional string desr = 4;
+}
+
